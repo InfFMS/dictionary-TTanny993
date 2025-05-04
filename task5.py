@@ -4,3 +4,10 @@
 # и предлагает пользователю ввести слово для перевода. 
 # Если введенного слова нет в словаре выводится сообщение "нет такого слова".
 # Используйте словари для словаря:)
+dictionary = {'автобус': 'bus', 'машина': 'car', 'стол': 'table', 'бутылка': 'bottle'}
+print(*list(dictionary.keys()))
+string = input().lower()
+if string in dictionary:
+    print(dictionary[string])
+else:
+    print('нет такого слова')
