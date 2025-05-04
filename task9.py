@@ -15,3 +15,34 @@
 # 1. Поиск друзей (соседей) для заданного пользователя.
 # 2. Проверка, являются ли два пользователя друзьями (есть ли ребро между вершинами).
 # 3. Поиск изолированных пользователей (вершин без рёбер).
+friends_graph = {
+    "Анна": ["Борис", "Виктор", "Дарья"],
+    "Борис": ["Анна", "Виктор"],
+    "Виктор": ["Анна", "Борис", "Дарья"],
+    "Дарья": ["Анна", "Виктор", "Елена"],
+    "Елена": ["Дарья"]
+}
+
+
+def find_friends(name):
+    return friends_graph[name]
+
+
+def is_friends(name1, name2):
+    if name2 in friends_graph[name1]:
+        return True
+    else:
+        return False
+
+
+def find_no_friends():
+    result = []
+    for name in friends_graph:
+        if len(friends_graph[name]) == 0:
+            result.append(name)
+    return result
+
+
+print(find_friends('Виктор'))
+print(is_friends('Виктор', 'Дарья'))
+print(find_no_friends())
